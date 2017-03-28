@@ -1,0 +1,7 @@
+
+Realizado por Antonio Javier Benítez Guijarro. 
+
+La version de 3Ds utilizada es la 2017.
+
+Se ha adjuntado una versión de la práctica en formato.FBX y un archivo .MAX para cada actividad propuesta. 
+También se ha adjuntado un .MAX y el archivo .FBX con todas las actividades juntas.
