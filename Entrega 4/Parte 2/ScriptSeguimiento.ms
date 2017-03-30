@@ -2,7 +2,6 @@ delete $*
 ball = sphere radius:10 wireColor:blue
 ball2 = sphere radius:8 wireColor:red
 ball3 = sphere radius:6 wireColor:orange
-lengua = plane 
 animate on
 ( 
 	at time 0   ball.pos = [-100,0,0] 
@@ -35,13 +34,4 @@ animate on for t in 10 to 200 by 5 do
 		ball.pos = ball.pos + random [0,-5,0] [0,5,0]
 		
 	)
-	
-animate on for in 0 to 200 by 5 do
-	at time t{
-		
-	}
-
-p1 = at time 10 ball.pos
-p2 = at time 50 ball.pos
-distance p2 p1   
 
