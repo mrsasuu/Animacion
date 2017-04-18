@@ -3,18 +3,50 @@ Function Lineal Traveler CP1  CP2 Inicio Fin   =
 	VectorSalto =CP2-CP1
 	CP3 = (CP1 + CP2)/2
 	
+	mitad = Fin - Inicio
+	
 	CP3 = CP3 + [0,0,50]
 	animate on
-	(
-		at time 0
+	(		
+		at time Inicio
 		(
+			Traveler.rotation = quat 0 0 0 1
 			Traveler.pos=CP1
+		)
+		at time (Inicio+1)
+		(
+			Traveler.modifiers[#Stretch].Stretch = 0.5
+			Traveler.rotation = quat 0 -0.173648 0 0.984808
+		)
+		
+		at time (mitad/2)
+		(
+			Traveler.rotation = quat 0 0 0 1
+			Traveler.modifiers[#Stretch].Stretch = 0
+		)
+		
+		at time (Fin-1)
+		(
+			Traveler.modifiers[#Stretch].Stretch = 0.5
+			Traveler.rotation = quat 0 0.173648 0 0.984808
+		)
+		
+		at time Fin 
+		(
+			Traveler.modifiers[#Stretch].Stretch = -0.25
+			Traveler.rotation = quat 0 0 0 1
 		)
 		
 		for t in Inicio to Fin by 1 do
 		(
 			at time t
 			(
+				if t == mitad do
+				(
+					
+				)
+				
+					
 				 VectorSalto = (CP3-CP1)
 	
 				q0 =CP1 + ((normalize VectorSalto)*(((length VectorSalto)/(Fin-Inicio))*(t-Inicio)))
