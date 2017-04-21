@@ -10,6 +10,7 @@ Function Lineal Traveler CP1  CP2 Inicio Fin   =
 	(		
 		at time Inicio
 		(
+			Traveler.modifiers[#Stretch].Stretch = -0.25
 			Traveler.rotation = quat 0 0 0 1
 			Traveler.pos=CP1
 		)
@@ -94,6 +95,7 @@ rollout Salto "Salto"
 		  (
 			  --deletekeys Traveler
 			  Traveler.dir = [0,0,1]
+			  addModifier Traveler (Stretch())
 				  
    	          Lineal Traveler P1.pos  P2.pos UI_IF.value (UI_IF.value+UI_FF.value)  
 			  Traveler.showtrajectory = on
