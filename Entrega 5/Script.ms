@@ -40,13 +40,7 @@ Function Lineal Traveler CP1  CP2 Inicio Fin   =
 		for t in Inicio to Fin by 1 do
 		(
 			at time t
-			(
-				if t == mitad do
-				(
-					
-				)
-				
-					
+			(					
 				 VectorSalto = (CP3-CP1)
 	
 				q0 =CP1 + ((normalize VectorSalto)*(((length VectorSalto)/(Fin-Inicio))*(t-Inicio)))
