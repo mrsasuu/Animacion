@@ -127,8 +127,21 @@ rollout Salto "Salto"
 				  
 				  
 				  --Añadimos el modificador a nuestro objeto
+				  modificador = false
 				  
-				  addModifier Traveler (Stretch())
+				  for i = 1 to Traveler.modifiers.count by 1 do 
+				(
+					 if ((ClassOf Traveler.modifiers[i]) == Stretch) do
+					 (
+						modificador = true
+					)
+				)
+				
+				  
+				  if (modificador == false) do
+					(
+					addModifier Traveler (Stretch())
+					)			  
 					  
 						for i = 2 to Array_1.count by 1 do 
 						(
