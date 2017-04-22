@@ -78,14 +78,13 @@ rollout Salto "Salto"
 	pickbutton UI_SelectorActor "Selecciona Actor"
 	label EP1 "Selecciona las huellas:" 
 	pickbutton UI_SelectorP1 "Añadir"
-	label EP2 "Borrar selección:" 
-	button UI_SelectorP2 "Borrar"
+	button MostrarSeleccion "Mostrar selección"
+	button UI_SelectorP2 "Borrar selección"
 	
 	label EP3 "Borrar claves:" 
 	pickbutton UI_SelectorP3 "Selecciona el actor"
 	
 	spinner UI_IF "Comienzo" range:[0,1000,0] type:#Integer
-	--spinner UI_FF "Duracion" range:[5,100,20] type:#Integer
 	button UI_CrearSalto "Crear"
 	
 	on UI_SelectorActor picked obj do
@@ -96,12 +95,18 @@ rollout Salto "Salto"
 	on UI_SelectorP1 picked obj do
 	(
 		append Array_1 obj
-		UI_SelectorP1.text = "Añadir"
+		select Array_1
+		
 	)
 	on UI_SelectorP2 pressed do
 	(
 		free Array_1
-		UI_SelectorP2.text = "Borrado"
+		clearSelection()
+	)
+	
+		on MostrarSeleccion pressed do
+	(
+		select Array_1
 	)
 	
 	on UI_SelectorP3 picked obj do
@@ -147,7 +152,7 @@ rollout Salto "Salto"
 						(
 							
 							distancia = sqrt ((pow (Array_1[i].pos - Array_1[i-1].pos)[1] 2) + (pow (Array_1[i].pos - Array_1[i-1].pos)[2] 2))
-							duracion = distancia * 0.4
+							duracion = distancia * 0.5
 							duracion = floor duracion
 							Format "Intervalo antes es: %\n" intervalo
 							Format "Duracion antes es: %\n" duracion
@@ -159,8 +164,6 @@ rollout Salto "Salto"
 							Format "Duracion es: %\n" duracion
 						)
 					  
-				  --Lineal Traveler P1.pos  P2.pos UI_IF.value (UI_IF.value+UI_FF.value)  
-					--Lineal Traveler P1.pos  P2.pos UI_IF.value (UI_IF.value+20)  
 				  Traveler.showtrajectory = on
 
 				  
