@@ -64,10 +64,10 @@ rollout Salto "Salto"
 (
 	label EActor "Actor:" 
 	pickbutton UI_SelectorActor "Selecciona Actor"
-	label EP1 "P1:" 
-	pickbutton UI_SelectorP1 "Selecciona P1"
-	label EP2 "P2:" 
-	pickbutton UI_SelectorP2 "Selecciona P2"
+	label EP1 "Traza:" 
+	pickbutton UI_SelectorP1 "Selecciona la traza"
+	label EP2 "Terreno:" 
+	pickbutton UI_SelectorP2 "Selecciona el terreno"
 	
 	spinner UI_IF "Comienzo" range:[0,1000,0] type:#Integer
 	spinner UI_FF "Duracion" range:[5,100,20] type:#Integer
