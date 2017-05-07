@@ -45,16 +45,20 @@ rollout Salto "Salto"
 			  
 		Animate on 
 		(
-			for i in inicio to final by 1 do
+			for i in 0 to 100 by 1 do
 			(
-				DirVector = Traveler.pos - (at time( i - 1 )(Traveler.pos))
+				at time i 
+				(
+					
+					DirVector = Traveler.pos - (at time( i - 1 )(Traveler.pos))
 					
 					Rayo = ray Traveler.pos [0,0,-1]
 
 				-- Calculo de colisión
 					Colision = IntersectRay terrainS Rayo	
 						
-					Traveler.pos = ((normalize Colision.dir) * Traveler.radius) + Colision.pos
+					Traveler.pos =[0,0,Traveler.radius]  + Colision.pos
+					--Traveler.pos =((normalize Colision.dir) * Traveler.radius) + Colision.pos
 						
 					RotVector = cross DirVector Colision.dir
 					
@@ -65,6 +69,8 @@ rollout Salto "Salto"
 					RotEuler = QuatToEuler Quaternion
 					
 					rotate Traveler RotEuler
+					
+				)
 					
 			)
 		)
